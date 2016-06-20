@@ -1,0 +1,3 @@
+ldap_homepage:
+    path:     /
+    defaults: { _controller: LdapBundle:Default:index }

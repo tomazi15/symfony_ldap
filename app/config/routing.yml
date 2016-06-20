@@ -1,0 +1,4 @@
+ldap:
+    resource: "@LdapBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--<parameters>-->
+    <!--<parameter key="app.mailer.transport">sendmail</parameter>-->
+    <!--</parameters>-->
+
+    <services>
+
+        <!-- Ldap Connection -->
+        <service id="ldap.ldaptest.ldap_adapter"
+                 class="Ldap\LdapBundle\Ldap\LdapAdapter">
+            <argument>%ldap_host%</argument>
+            <argument>%ldap_port%</argument>
+            <argument>%ldap_version%</argument>
+            <argument>%ldap_ssl%</argument>
+            <argument>%ldap_tls%</argument>
+        </service>
+
+        <service id="ldap.default_controller"
+                class="Ldap\LdapBundle\Controller\DefaultController">
+            <argument type="service" id="ldap.ldaptest.ldap_adapter" />
+        </service>
+
+    </services>
+</container>
